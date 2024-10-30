@@ -6,12 +6,22 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
-struct CerberusApp: App {
+struct CerberusApp: App {    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .frame(minWidth: 500, minHeight: 500)
         }
+        .modelContainer(for: Note.self)
+        .windowStyle(HiddenTitleBarWindowStyle())
     }
 }
+
+#Preview {
+    ContentView()
+        .presentedWindowStyle(HiddenTitleBarWindowStyle())
+}
+
