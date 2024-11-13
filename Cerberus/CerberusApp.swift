@@ -10,10 +10,14 @@ import SwiftData
 
 @main
 struct CerberusApp: App {
+    @AppStorage("d") private var show = true
     var body: some Scene {
-        MenuBarExtra("App", systemImage: "hammer") {
+        MenuBarExtra("App", systemImage: "paperplane") {
             ContentView()
                 .frame(minWidth: 500, minHeight: 500)
+                .modelContainer(for: [
+                    Note.self
+                ])
         }
         .menuBarExtraStyle(.window)
     }

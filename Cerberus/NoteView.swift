@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NoteView: View {
-    @Binding var note: Note
+    @ObservedObject var note: Note
     var body: some View {
         TextEditor(text: $note.content)
             .font(.custom("JetBrainsMono Nerd Font Propo", size: 16))
@@ -19,5 +19,5 @@ struct NoteView: View {
 
 #Preview {
     @Previewable @State var note = Note()
-    NoteView(note: $note)
+    NoteView(note: note)
 }
