@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct NoteView: View {
-    @Binding var noteVM: NoteViewModel
+    @Binding var note: Note
     var body: some View {
-        TextEditor(text: $noteVM.content)
+        TextEditor(text: $note.content)
             .font(.custom("JetBrainsMono Nerd Font Propo", size: 16))
             .scrollDisabled(true)
-            .contentMargins(10)
+            .padding(5)
     }
 }
 
 #Preview {
-    @Previewable @State var nvm = NoteViewModel()
-    NoteView(noteVM: $nvm)
+    @Previewable @State var note = Note()
+    NoteView(note: $note)
 }

@@ -9,14 +9,13 @@ import SwiftUI
 import SwiftData
 
 @main
-struct CerberusApp: App {    
+struct CerberusApp: App {
     var body: some Scene {
-        WindowGroup {
+        MenuBarExtra("App", systemImage: "hammer") {
             ContentView()
                 .frame(minWidth: 500, minHeight: 500)
         }
-        .modelContainer(for: Note.self)
-        .windowStyle(HiddenTitleBarWindowStyle())
+        .menuBarExtraStyle(.window)
     }
 }
 
