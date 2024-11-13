@@ -13,6 +13,7 @@ struct NoteView: View {
         TextEditor(text: $noteVM.content)
             .font(.custom("JetBrainsMono Nerd Font Propo", size: 16))
             .scrollDisabled(true)
+            .contentMargins(10)
     }
 }
 

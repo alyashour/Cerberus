@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var selectedNote: NoteViewModel = NoteViewModel()
+    @State var selectedNote: NoteViewModel
     var noteView: NoteView? = nil
-    
     let backgroundColor: Color
     
+    let font: Font = .custom("JetBrainsMono Nerd Font Propo", size: 16)
     var notes = [
         NoteViewModel(content: "Note 1", color: .red),
         NoteViewModel(content: "Note 2", color: .green),
@@ -20,14 +20,16 @@ struct ContentView: View {
     ]
     
     init(defaultIndex: Int = 0, backgroundColor: Color = .black) {
+        self.selectedNote = notes[defaultIndex]
         self.backgroundColor = backgroundColor
         self.noteView = NoteView(noteVM: $selectedNote)
     }
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             HStack(spacing: 20) {
                 Spacer()
+                
                 ForEach(notes, id: \.id) { note in
                     Button(action: {
                         if selectedNote != note {
@@ -44,14 +46,17 @@ struct ContentView: View {
                         }
                     }
                     .buttonStyle(PlainButtonStyle())
-//                    Text(note.content)
                 }
+                
                 Spacer()
             }
             .padding()
             .background(backgroundColor)
             
-            NoteView(noteVM: $selectedNote)
+            TextEditor(text: $selectedNote.content)
+                .font(.custom("JetBrainsMono Nerd Font Propo", size: 16))
+                .scrollDisabled(true)
+                .contentMargins(10)
         }
     }
 }

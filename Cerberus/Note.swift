@@ -10,7 +10,7 @@ import SwiftData
 import SwiftUI
 
 @Model
-class Note: Identifiable  {
+class Note: Identifiable, ObservableObject  {
     @Attribute(.unique) var id: UUID
     var content: String
     var hexColor: String
