@@ -13,3 +13,5 @@ This app sits discretly in the menu bar, providing quick access to notes without
 - Add dates to the end of lines to make tasks  
 - iPhone + watchOS apps  
 - Cross-Device Sync: Ensure notes sync across Apple devices  
+
+Still a WIP! Stay tuned for a first release.
